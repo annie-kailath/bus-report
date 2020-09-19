@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>
+        Bus Reports
+    </h1>
+    <ul>
+        <li *ngFor="let busServiceList of busServiceStatus">
+            <table id="bus-details">
+                <thead>
+                    <tr>
+                        <th>Bus ID</th>
+                        <th>Route Variant</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let busDetails of busServiceList.busData">
+                        <td>{{busDetails.busId}}</td>
+                        <td>{{busDetails.routeVariant}}</td>
+                        <td>{{busDetails.deviationFromTimetable}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <textarea placeholder=" Enter notes here"></textarea>
+            <button>Save Notes</button>
+        </li>
+    </ul>
+</div>

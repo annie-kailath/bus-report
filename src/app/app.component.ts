@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BusServiceDetails } from './models/bus-service-details';
+import { BusReportDetailsService } from './services/bus-report-details.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
+  busServiceStatus: BusServiceDetails[] = [];
+  constructor(private busReportDetailsService: BusReportDetailsService) { }
+  ngOnInit() {
+    this.busReportDetailsService.fetchBusServiceStatus().subscribe(details => {
+      this.busServiceStatus = details['data'];
+    });
+  }
 }
