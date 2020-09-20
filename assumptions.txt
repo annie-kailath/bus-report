@@ -1,0 +1,7 @@
+Assumptions made during the development of the project
+
+    * The data rendered on to the web page is read only from the 'src/assests/bus-services-data.json'.
+    * The bus status is display as 'Early' if the deviation val is negative, 'Late' for val greater than 300 and
+    'On Time' for value between 0 and 300.
+    * Unknown / null value is displayed as "Not available".
+    
