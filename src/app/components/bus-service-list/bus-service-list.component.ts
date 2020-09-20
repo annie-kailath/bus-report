@@ -6,7 +6,7 @@ import { BusServiceDetails } from '../../models/bus-service-details';
   styleUrls: ['./bus-service-list.component.scss']
 })
 export class BusServiceListComponent implements OnInit {
-
+  isExpanded = false;
   @Input() busServiceList: BusServiceDetails;
 
   constructor() { }
