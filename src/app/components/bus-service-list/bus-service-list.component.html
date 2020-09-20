@@ -1,0 +1,26 @@
+<div>
+    <h2>{{busServiceList.organisation +' '}}-{{' '+busServiceList.date}}</h2>
+    <table id="bus-details">
+        <thead>
+            <tr>
+                <th>Bus ID</th>
+                <th>Route Variant</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let busDetails of busServiceList.busData">
+                <td>{{busDetails.busId}}</td>
+                <td>
+                    <span *ngIf="!(busDetails.routeVariant === 'UNKNOWN'); else unknown">
+                                <b>{{busDetails.routeVariant.slice( 0, 3 )}}</b> {{busDetails.routeVariant.slice( 4, 7 )}}
+                            </span>
+                    <ng-template #unknown>Not Available</ng-template>
+                </td>
+                <td><span [innerHTML]="busDetails.deviationFromTimetable | arrivalStatus"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <textarea placeholder=" Enter notes here"></textarea>
+    <button>Save Notes</button>
+</div>
